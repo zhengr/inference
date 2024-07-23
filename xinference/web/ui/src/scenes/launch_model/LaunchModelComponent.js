@@ -73,7 +73,7 @@ const LaunchModelComponent = ({ modelType, gpuAvailable }) => {
       setIsCallingApi(true)
 
       fetchWrapper
-        .get(`/v1/model_registrations/${modelType}?detailed=true`)
+        .get(`/api/v1/model_registrations/${modelType}?detailed=true`)
         .then((data) => {
           const builtinModels = data.filter((v) => {
             return v.is_builtin
