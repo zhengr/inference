@@ -258,7 +258,7 @@ const ModelCard = ({
 
   const getModelEngine = (model_name) => {
     fetchWrapper
-      .get(`/v1/engines/${model_name}`)
+      .get(`/api/v1/engines/${model_name}`)
       .then((data) => {
         setEnginesObj(data)
         setEngineOptions(Object.keys(data))
@@ -371,7 +371,7 @@ const ModelCard = ({
 
     // First fetcher request to initiate the model
     fetchWrapper
-      .post('/v1/models', modelDataWithID)
+      .post('/api/v1/models', modelDataWithID)
       .then(() => {
         navigate(`/running_models/${modelType}`)
         sessionStorage.setItem(
@@ -413,7 +413,7 @@ const ModelCard = ({
       subType[3]
       fetchWrapper
         .delete(
-          `/v1/model_registrations/${
+          `/api/v1/model_registrations/${
             subType[3] === 'llm' ? 'LLM' : subType[3]
           }/${modelData.model_name}`
         )
@@ -490,7 +490,7 @@ const ModelCard = ({
 
   const getCachedList = () => {
     fetchWrapper
-      .get(`/v1/cache/models?model_name=${modelData.model_name}`)
+      .get(`/api/v1/cache/models?model_name=${modelData.model_name}`)
       .then((data) => setCachedListArr(data.list))
       .catch((error) => {
         console.error(error)
@@ -508,7 +508,7 @@ const ModelCard = ({
 
   const handleDeleteCached = () => {
     fetchWrapper
-      .delete(`/v1/cache/models?model_version=${cachedModelVersion}`)
+      .delete(`/api/v1/cache/models?model_version=${cachedModelVersion}`)
       .then(() => {
         const cachedArr = cachedListArr.filter(
           (item) => item.real_path !== cachedRealPath
