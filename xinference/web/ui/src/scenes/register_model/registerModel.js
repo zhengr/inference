@@ -218,7 +218,7 @@ const RegisterModelComponent = ({ modelType, customData }) => {
     }
 
     const getBuiltinFamilies = async () => {
-      const response = await fetch(endPoint + '/v1/models/families', {
+      const response = await fetch(endPoint + '/api/v1/models/families', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -240,7 +240,7 @@ const RegisterModelComponent = ({ modelType, customData }) => {
     }
 
     const getBuiltInPromptStyles = async () => {
-      const response = await fetch(endPoint + '/v1/models/prompts', {
+      const response = await fetch(endPoint + '/api/v1/models/prompts', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -353,7 +353,7 @@ const RegisterModelComponent = ({ modelType, customData }) => {
 
     try {
       fetchWrapper
-        .post(`/v1/model_registrations/${modelType}`, {
+        .post(`/api/v1/model_registrations/${modelType}`, {
           model: JSON.stringify(formData),
           persist: true,
         })
@@ -533,7 +533,7 @@ const RegisterModelComponent = ({ modelType, customData }) => {
   const handleEdit = () => {
     fetchWrapper
       .delete(
-        `/v1/model_registrations/${
+        `/api/v1/model_registrations/${
           registerModelType === 'llm' ? 'LLM' : registerModelType
         }/${model_name}`
       )
