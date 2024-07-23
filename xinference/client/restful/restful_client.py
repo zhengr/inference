@@ -111,7 +111,7 @@ class RESTfulEmbeddingModelHandle(RESTfulModelHandle):
             Report the failure of embeddings and provide the error message.
 
         """
-        url = f"{self._base_url}/v1/embeddings"
+        url = f"{self._base_url}/api/v1/embeddings"
         request_body = {
             "model": self._model_uid,
             "input": input,
@@ -165,7 +165,7 @@ class RESTfulRerankModelHandle(RESTfulModelHandle):
         RuntimeError
             Report the failure of rerank and provide the error message.
         """
-        url = f"{self._base_url}/v1/rerank"
+        url = f"{self._base_url}/api/v1/rerank"
         request_body = {
             "model": self._model_uid,
             "documents": documents,
@@ -212,7 +212,7 @@ class RESTfulImageModelHandle(RESTfulModelHandle):
         ImageList
             A list of image objects.
         """
-        url = f"{self._base_url}/v1/images/generations"
+        url = f"{self._base_url}/api/v1/images/generations"
         request_body = {
             "model": self._model_uid,
             "prompt": prompt,
@@ -271,7 +271,7 @@ class RESTfulImageModelHandle(RESTfulModelHandle):
             :param prompt:
             :param image:
         """
-        url = f"{self._base_url}/v1/images/variations"
+        url = f"{self._base_url}/api/v1/images/variations"
         params = {
             "model": self._model_uid,
             "prompt": prompt,
@@ -343,7 +343,7 @@ class RESTfulImageModelHandle(RESTfulModelHandle):
             :param prompt:
             :param image:
         """
-        url = f"{self._base_url}/v1/images/inpainting"
+        url = f"{self._base_url}/api/v1/images/inpainting"
         params = {
             "model": self._model_uid,
             "prompt": prompt,
@@ -404,7 +404,7 @@ class RESTfulGenerateModelHandle(RESTfulModelHandle):
 
         """
 
-        url = f"{self._base_url}/v1/completions"
+        url = f"{self._base_url}/api/v1/completions"
 
         request_body: Dict[str, Any] = {"model": self._model_uid, "prompt": prompt}
         if generate_config is not None:
@@ -545,7 +545,7 @@ class RESTfulChatglmCppChatModelHandle(RESTfulModelHandle):
 
         """
 
-        url = f"{self._base_url}/api/v1/chat/completions"
+        url = f"{self._base_url}/api/api/v1/chat/completions"
 
         if chat_history is None:
             chat_history = []
@@ -610,7 +610,7 @@ class RESTfulChatglmCppGenerateModelHandle(RESTfulChatglmCppChatModelHandle):
 
         """
 
-        url = f"{self._base_url}/v1/completions"
+        url = f"{self._base_url}/api/v1/completions"
 
         request_body: Dict[str, Any] = {"model": self._model_uid, "prompt": prompt}
         if generate_config is not None:
@@ -676,7 +676,7 @@ class RESTfulAudioModelHandle(RESTfulModelHandle):
         -------
             The transcribed text.
         """
-        url = f"{self._base_url}/v1/audio/transcriptions"
+        url = f"{self._base_url}/api/v1/audio/transcriptions"
         params = {
             "model": self._model_uid,
             "language": language,
@@ -739,7 +739,7 @@ class RESTfulAudioModelHandle(RESTfulModelHandle):
         -------
             The translated text.
         """
-        url = f"{self._base_url}/v1/audio/translations"
+        url = f"{self._base_url}/api/v1/audio/translations"
         params = {
             "model": self._model_uid,
             "language": language,
@@ -791,7 +791,7 @@ class RESTfulAudioModelHandle(RESTfulModelHandle):
         bytes
             The generated audio binary.
         """
-        url = f"{self._base_url}/v1/audio/speech"
+        url = f"{self._base_url}/api/v1/audio/speech"
         params = {
             "model": self._model_uid,
             "input": input,
@@ -832,7 +832,7 @@ class RESTfulFlexibleModelHandle(RESTfulModelHandle):
         bytes
             The inference result.
         """
-        url = f"{self._base_url}/v1/flexible/infers"
+        url = f"{self._base_url}/api/v1/flexible/infers"
         params = {
             "model": self._model_uid,
         }
@@ -869,7 +869,7 @@ class Client:
         )
 
     def _check_cluster_authenticated(self):
-        url = f"{self.base_url}/v1/cluster/auth"
+        url = f"{self.base_url}/api/v1/cluster/auth"
         response = requests.get(url)
         # compatible with old version of xinference
         if response.status_code == 404:
@@ -883,7 +883,7 @@ class Client:
             self._cluster_authed = bool(response_data["auth"])
 
     def vllm_models(self) -> Dict[str, Any]:
-        url = f"{self.base_url}/v1/models/vllm-supported"
+        url = f"{self.base_url}/api/v1/models/vllm-supported"
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -922,7 +922,7 @@ class Client:
 
         """
 
-        url = f"{self.base_url}/v1/models"
+        url = f"{self.base_url}/api/v1/models"
 
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
@@ -996,7 +996,7 @@ class Client:
 
         """
 
-        url = f"{self.base_url}/v1/models"
+        url = f"{self.base_url}/api/v1/models"
 
         # convert float to int or string since the RESTful API does not accept float.
         if isinstance(model_size_in_billions, float):
@@ -1046,7 +1046,7 @@ class Client:
 
         """
 
-        url = f"{self.base_url}/v1/models/{model_uid}"
+        url = f"{self.base_url}/api/v1/models/{model_uid}"
 
         response = requests.delete(url, headers=self._headers)
         if response.status_code != 200:
@@ -1055,7 +1055,7 @@ class Client:
             )
 
     def _get_supervisor_internal_address(self):
-        url = f"{self.base_url}/v1/address"
+        url = f"{self.base_url}/api/v1/address"
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(f"Failed to get supervisor internal address")
@@ -1087,7 +1087,7 @@ class Client:
 
         """
 
-        url = f"{self.base_url}/v1/models/{model_uid}"
+        url = f"{self.base_url}/api/v1/models/{model_uid}"
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -1175,7 +1175,7 @@ class Client:
 
         """
 
-        url = f"{self.base_url}/v1/models/{model_uid}"
+        url = f"{self.base_url}/api/v1/models/{model_uid}"
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -1209,7 +1209,7 @@ class Client:
         RuntimeError
             Report failure to register the custom model. Provide details of failure through error message.
         """
-        url = f"{self.base_url}/v1/model_registrations/{model_type}"
+        url = f"{self.base_url}/api/v1/model_registrations/{model_type}"
         request_body = {"model": model, "worker_ip": worker_ip, "persist": persist}
         response = requests.post(url, json=request_body, headers=self._headers)
         if response.status_code != 200:
@@ -1236,7 +1236,7 @@ class Client:
         RuntimeError
             Report failure to unregister the custom model. Provide details of failure through error message.
         """
-        url = f"{self.base_url}/v1/model_registrations/{model_type}/{model_name}"
+        url = f"{self.base_url}/api/v1/model_registrations/{model_type}/{model_name}"
         response = requests.delete(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -1266,7 +1266,7 @@ class Client:
             Report failure to list model registration. Provide details of failure through error message.
 
         """
-        url = f"{self.base_url}/v1/model_registrations/{model_type}"
+        url = f"{self.base_url}/api/v1/model_registrations/{model_type}"
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -1299,7 +1299,7 @@ class Client:
             Raised when the request fails, including the reason for the failure.
         """
 
-        url = f"{self.base_url}/v1/cache/models"
+        url = f"{self.base_url}/api/v1/cache/models"
         params = {
             "model_name": model_name,
             "worker_ip": worker_ip,
@@ -1330,7 +1330,7 @@ class Client:
         Dict[str, Dict[str,str]]]
             Dictionary with keys "model_name" and values model_file_location.
         """
-        url = f"{self.base_url}/v1/cache/models/files"
+        url = f"{self.base_url}/api/v1/cache/models/files"
         params = {
             "model_version": model_version,
             "worker_ip": worker_ip,
@@ -1360,7 +1360,7 @@ class Client:
         str
             The response of the server.
         """
-        url = f"{self.base_url}/v1/cache/models"
+        url = f"{self.base_url}/api/v1/cache/models"
         params = {
             "model_version": model_version,
             "worker_ip": worker_ip,
@@ -1392,7 +1392,7 @@ class Client:
         List[Dict[str, Any]]
             The collection of registered models on the server.
         """
-        url = f"{self.base_url}/v1/model_registrations/{model_type}/{model_name}"
+        url = f"{self.base_url}/api/v1/model_registrations/{model_type}/{model_name}"
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -1415,7 +1415,7 @@ class Client:
         Dict[str, List[Dict[str, Any]]]
             The supported engine parameters of registered models on the server.
         """
-        url = f"{self.base_url}/v1/engines/{model_name}"
+        url = f"{self.base_url}/api/v1/engines/{model_name}"
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -1442,7 +1442,7 @@ class Client:
         Dict
             Return empty dict.
         """
-        url = f"{self.base_url}/v1/models/{model_uid}/requests/{request_id}/abort"
+        url = f"{self.base_url}/api/v1/models/{model_uid}/requests/{request_id}/abort"
         response = requests.post(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -1453,7 +1453,7 @@ class Client:
         return response_data
 
     def get_workers_info(self):
-        url = f"{self.base_url}/v1/workers"
+        url = f"{self.base_url}/api/v1/workers"
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -1463,7 +1463,7 @@ class Client:
         return response_data
 
     def get_supervisor_info(self):
-        url = f"{self.base_url}/v1/supervisor"
+        url = f"{self.base_url}/api/v1/supervisor"
         response = requests.get(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
@@ -1473,7 +1473,7 @@ class Client:
         return response_json
 
     def abort_cluster(self):
-        url = f"{self.base_url}/v1/clusters"
+        url = f"{self.base_url}/api/v1/clusters"
         response = requests.delete(url, headers=self._headers)
         if response.status_code != 200:
             raise RuntimeError(
