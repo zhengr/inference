@@ -390,7 +390,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/api/api/v1/models",
+            "/api/v1/models",
             self.launch_model,
             methods=["POST"],
             dependencies=(
@@ -400,7 +400,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/api/api/v1/models/{model_uid}",
+            "/api/v1/models/{model_uid}",
             self.terminate_model,
             methods=["DELETE"],
             dependencies=(
@@ -410,7 +410,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/api/api/v1/completions",
+            "/api/v1/completions",
             self.create_completion,
             methods=["POST"],
             response_model=Completion,
@@ -421,7 +421,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/api/api/v1/embeddings",
+            "/api/v1/embeddings",
             self.create_embedding,
             methods=["POST"],
             dependencies=(
@@ -431,7 +431,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/api/api/v1/rerank",
+            "/api/v1/rerank",
             self.rerank,
             methods=["POST"],
             dependencies=(
