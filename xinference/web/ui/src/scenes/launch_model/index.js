@@ -45,7 +45,7 @@ const LaunchModel = () => {
 
     if (gpuAvailable === -1) {
       fetchWrapper
-        .get('/v1/cluster/devices')
+        .get('/api/v1/cluster/devices')
         .then((data) => setGPUAvailable(parseInt(data, 10)))
         .catch((error) => {
           console.error('Error:', error)
