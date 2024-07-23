@@ -17,7 +17,7 @@ const LoginAuth = () => {
   const { endPoint } = useContext(ApiContext)
 
   useEffect(() => {
-    fetch(endPoint + '/v1/cluster/auth', {
+    fetch(endPoint + '/api/v1/cluster/auth', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
