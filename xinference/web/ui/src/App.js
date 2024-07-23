@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     // token possible value: no_auth / need_auth / <real bearer token>
-    fetch(endPoint + '/v1/cluster/auth', {
+    fetch(endPoint + '/api/v1/cluster/auth', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
