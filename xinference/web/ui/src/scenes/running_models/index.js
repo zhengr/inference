@@ -66,7 +66,7 @@ const RunningModels = () => {
       setIsUpdatingModel(true)
 
       fetchWrapper
-        .get('/v1/models')
+        .get('/api/v1/models')
         .then((response) => {
           const newLlmData = []
           const newEmbeddingModelData = []
@@ -165,8 +165,8 @@ const RunningModels = () => {
       renderCell: ({ row }) => {
         const url = row.url
         const openUrl = `${endPoint}/` + url
-        const closeUrl = `${endPoint}/v1/models/` + url
-        const gradioUrl = `${endPoint}/v1/ui/` + url
+        const closeUrl = `${endPoint}/api/v1/models/` + url
+        const gradioUrl = `${endPoint}/api/v1/ui/` + url
 
         if (url === 'IS_LOADING') {
           return <div></div>
@@ -348,7 +348,7 @@ const RunningModels = () => {
       disableColumnMenu: true,
       renderCell: ({ row }) => {
         const url = row.url
-        const closeUrl = `${endPoint}/v1/models/` + url
+        const closeUrl = `${endPoint}/api/v1/models/` + url
 
         if (url === 'IS_LOADING') {
           return <div></div>
@@ -447,8 +447,8 @@ const RunningModels = () => {
         const url = row.url
         console.log('url: ' + url)
         const openUrl = `${endPoint}/` + url
-        const closeUrl = `${endPoint}/v1/models/` + url
-        const gradioUrl = `${endPoint}/v1/ui/images/` + url
+        const closeUrl = `${endPoint}/api/v1/models/` + url
+        const gradioUrl = `${endPoint}/api/v1/ui/images/` + url
 
         if (url === 'IS_LOADING') {
           return <div></div>
