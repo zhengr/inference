@@ -236,20 +236,20 @@ class RESTfulAPI:
 
         # internal interface
         self._router.add_api_route("/status", self.get_status, methods=["GET"])
-        # conflict with /v1/models/{model_uid} below, so register this first
+        # conflict with /api/v1/models/{model_uid} below, so register this first
         self._router.add_api_route(
-            "/v1/models/prompts", self._get_builtin_prompts, methods=["GET"]
+            "/api/v1/models/prompts", self._get_builtin_prompts, methods=["GET"]
         )
         self._router.add_api_route(
-            "/v1/models/families", self._get_builtin_families, methods=["GET"]
+            "/api/v1/models/families", self._get_builtin_families, methods=["GET"]
         )
         self._router.add_api_route(
-            "/v1/models/vllm-supported",
+            "/api/v1/models/vllm-supported",
             self.list_vllm_supported_model_families,
             methods=["GET"],
         )
         self._router.add_api_route(
-            "/v1/cluster/info",
+            "/api/v1/cluster/info",
             self.get_cluster_device_info,
             methods=["GET"],
             dependencies=(
@@ -259,7 +259,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/cluster/version",
+            "/api/v1/cluster/version",
             self.get_cluster_version,
             methods=["GET"],
             dependencies=(
@@ -269,7 +269,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/cluster/devices",
+            "/api/v1/cluster/devices",
             self._get_devices_count,
             methods=["GET"],
             dependencies=(
@@ -278,11 +278,11 @@ class RESTfulAPI:
                 else None
             ),
         )
-        self._router.add_api_route("/v1/address", self.get_address, methods=["GET"])
+        self._router.add_api_route("/api/v1/address", self.get_address, methods=["GET"])
 
         # user interface
         self._router.add_api_route(
-            "/v1/ui/{model_uid}",
+            "/api/v1/ui/{model_uid}",
             self.build_gradio_interface,
             methods=["POST"],
             dependencies=(
@@ -292,7 +292,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/ui/images/{model_uid}",
+            "/api/v1/ui/images/{model_uid}",
             self.build_gradio_images_interface,
             methods=["POST"],
             dependencies=(
@@ -305,10 +305,10 @@ class RESTfulAPI:
             "/token", self.login_for_access_token, methods=["POST"]
         )
         self._router.add_api_route(
-            "/v1/cluster/auth", self.is_cluster_authenticated, methods=["GET"]
+            "/api/v1/cluster/auth", self.is_cluster_authenticated, methods=["GET"]
         )
         self._router.add_api_route(
-            "/v1/engines/{model_name}",
+            "/api/v1/engines/{model_name}",
             self.query_engines_by_model_name,
             methods=["GET"],
             dependencies=(
@@ -319,7 +319,7 @@ class RESTfulAPI:
         )
         # running instances
         self._router.add_api_route(
-            "/v1/models/instances",
+            "/api/v1/models/instances",
             self.get_instance_info,
             methods=["GET"],
             dependencies=(
@@ -329,7 +329,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/models/{model_type}/{model_name}/versions",
+            "/api/v1/models/{model_type}/{model_name}/versions",
             self.get_model_versions,
             methods=["GET"],
             dependencies=(
@@ -339,7 +339,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/models",
+            "/api/v1/models",
             self.list_models,
             methods=["GET"],
             dependencies=(
@@ -350,7 +350,7 @@ class RESTfulAPI:
         )
 
         self._router.add_api_route(
-            "/v1/models/{model_uid}",
+            "/api/v1/models/{model_uid}",
             self.describe_model,
             methods=["GET"],
             dependencies=(
@@ -360,7 +360,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/models/{model_uid}/events",
+            "/api/v1/models/{model_uid}/events",
             self.get_model_events,
             methods=["GET"],
             dependencies=(
@@ -370,7 +370,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/models/{model_uid}/requests/{request_id}/abort",
+            "/api/v1/models/{model_uid}/requests/{request_id}/abort",
             self.abort_request,
             methods=["POST"],
             dependencies=(
@@ -380,7 +380,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/models/instance",
+            "/api/v1/models/instance",
             self.launch_model_by_version,
             methods=["POST"],
             dependencies=(
@@ -390,7 +390,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/models",
+            "/api/api/v1/models",
             self.launch_model,
             methods=["POST"],
             dependencies=(
@@ -400,7 +400,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/models/{model_uid}",
+            "/api/api/v1/models/{model_uid}",
             self.terminate_model,
             methods=["DELETE"],
             dependencies=(
@@ -410,7 +410,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/completions",
+            "/api/api/v1/completions",
             self.create_completion,
             methods=["POST"],
             response_model=Completion,
@@ -421,7 +421,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/embeddings",
+            "/api/api/v1/embeddings",
             self.create_embedding,
             methods=["POST"],
             dependencies=(
@@ -431,7 +431,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/rerank",
+            "/api/api/v1/rerank",
             self.rerank,
             methods=["POST"],
             dependencies=(
@@ -441,7 +441,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/audio/transcriptions",
+            "/api/v1/audio/transcriptions",
             self.create_transcriptions,
             methods=["POST"],
             dependencies=(
@@ -451,7 +451,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/audio/translations",
+            "/api/v1/audio/translations",
             self.create_translations,
             methods=["POST"],
             dependencies=(
@@ -461,7 +461,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/audio/speech",
+            "/api/v1/audio/speech",
             self.create_speech,
             methods=["POST"],
             dependencies=(
@@ -471,7 +471,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/images/generations",
+            "/api/v1/images/generations",
             self.create_images,
             methods=["POST"],
             response_model=ImageList,
@@ -482,7 +482,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/images/variations",
+            "/api/v1/images/variations",
             self.create_variations,
             methods=["POST"],
             response_model=ImageList,
@@ -493,7 +493,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/images/inpainting",
+            "/api/v1/images/inpainting",
             self.create_inpainting,
             methods=["POST"],
             response_model=ImageList,
@@ -515,7 +515,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/flexible/infers",
+            "/api/v1/flexible/infers",
             self.create_flexible_infer,
             methods=["POST"],
             dependencies=(
@@ -527,7 +527,7 @@ class RESTfulAPI:
 
         # for custom models
         self._router.add_api_route(
-            "/v1/model_registrations/{model_type}",
+            "/api/v1/model_registrations/{model_type}",
             self.register_model,
             methods=["POST"],
             dependencies=(
@@ -537,7 +537,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/model_registrations/{model_type}/{model_name}",
+            "/api/v1/model_registrations/{model_type}/{model_name}",
             self.unregister_model,
             methods=["DELETE"],
             dependencies=(
@@ -547,7 +547,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/model_registrations/{model_type}",
+            "/api/v1/model_registrations/{model_type}",
             self.list_model_registrations,
             methods=["GET"],
             dependencies=(
@@ -557,7 +557,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/model_registrations/{model_type}/{model_name}",
+            "/api/v1/model_registrations/{model_type}/{model_name}",
             self.get_model_registrations,
             methods=["GET"],
             dependencies=(
@@ -567,7 +567,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/cache/models",
+            "/api/v1/cache/models",
             self.list_cached_models,
             methods=["GET"],
             dependencies=(
@@ -577,7 +577,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/cache/models/files",
+            "/api/v1/cache/models/files",
             self.list_model_files,
             methods=["GET"],
             dependencies=(
@@ -587,7 +587,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/cache/models",
+            "/api/v1/cache/models",
             self.confirm_and_remove_model,
             methods=["DELETE"],
             dependencies=(
@@ -597,7 +597,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/workers",
+            "/api/v1/workers",
             self.get_workers_info,
             methods=["GET"],
             dependencies=(
@@ -607,7 +607,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/supervisor",
+            "/api/v1/supervisor",
             self.get_supervisor_info,
             methods=["GET"],
             dependencies=(
@@ -617,7 +617,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/clusters",
+            "/api/v1/clusters",
             self.abort_cluster,
             methods=["DELETE"],
             dependencies=(
