@@ -45,7 +45,7 @@ def main(args: argparse.Namespace):
     random.seed(args.seed)
     np.random.seed(args.seed)
 
-    api_url = f"http://{args.host}:{args.port}/v1/chat/completions"
+    api_url = f"http://{args.host}:{args.port}/api/v1/chat/completions"
     model_uid = args.model_uid
 
     logger.info("Preparing for benchmark.")
