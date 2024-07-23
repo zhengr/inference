@@ -106,7 +106,7 @@ async def test_restful_api(setup):
     assert response.status_code == 500
 
     # chat without user messages
-    url = f"{endpoint}/v1/chat/completions"
+    url = f"{endpoint}/api/v1/chat/completions"
     payload = {
         "model": model_uid_res,
         "messages": [
@@ -122,7 +122,7 @@ async def test_restful_api(setup):
     assert "content" in completion["choices"][0]["message"]
 
     # chat
-    url = f"{endpoint}/v1/chat/completions"
+    url = f"{endpoint}/api/v1/chat/completions"
     payload = {
         "model": model_uid_res,
         "messages": [
@@ -486,7 +486,7 @@ def test_restful_api_for_tool_calls(setup, model_format, quantization):
         }
     ]
 
-    url = f"{endpoint}/v1/chat/completions"
+    url = f"{endpoint}/api/v1/chat/completions"
     payload = {
         "model": model_uid_res,
         "messages": [
@@ -542,7 +542,7 @@ def test_restful_api_for_tool_calls(setup, model_format, quantization):
             },
         },
     ]
-    url = f"{endpoint}/v1/chat/completions"
+    url = f"{endpoint}/api/v1/chat/completions"
     payload = {
         "model": model_uid_res,
         "messages": [
@@ -691,7 +691,7 @@ def test_restful_api_for_gorilla_openfunctions_tool_calls(
             },
         }
     ]
-    url = f"{endpoint}/v1/chat/completions"
+    url = f"{endpoint}/api/v1/chat/completions"
     payload = {
         "model": model_uid_res,
         "messages": [
@@ -761,7 +761,7 @@ def test_restful_api_for_qwen_tool_calls(setup, model_format, quantization):
     response_data = response.json()
     assert len(response_data["data"]) == 1
 
-    url = f"{endpoint}/v1/chat/completions"
+    url = f"{endpoint}/api/v1/chat/completions"
     payload = {
         "model": model_uid_res,
         "messages": [
@@ -796,7 +796,7 @@ def test_restful_api_for_qwen_tool_calls(setup, model_format, quantization):
         },
     ]
 
-    url = f"{endpoint}/v1/chat/completions"
+    url = f"{endpoint}/api/v1/chat/completions"
     payload = {
         "model": model_uid_res,
         "messages": [
@@ -861,7 +861,7 @@ def test_restful_api_for_qwen_tool_calls(setup, model_format, quantization):
             },
         },
     ]
-    url = f"{endpoint}/v1/chat/completions"
+    url = f"{endpoint}/api/v1/chat/completions"
     payload = {
         "model": model_uid_res,
         "messages": [
