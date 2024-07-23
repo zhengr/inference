@@ -504,7 +504,7 @@ class RESTfulAPI:
             ),
         )
         self._router.add_api_route(
-            "/v1/chat/completions",
+            "/api/v1/chat/completions",
             self.create_chat_completion,
             methods=["POST"],
             response_model=ChatCompletion,
