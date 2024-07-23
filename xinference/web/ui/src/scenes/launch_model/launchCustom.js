@@ -52,13 +52,13 @@ const LaunchCustom = ({ gpuAvailable }) => {
     try {
       setIsCallingApi(true)
 
-      const data = await fetchWrapper.get(`/v1/model_registrations/${type}`)
+      const data = await fetchWrapper.get(`/api/v1/model_registrations/${type}`)
       const customRegistrations = data.filter((data) => !data.is_builtin)
 
       const newData = await Promise.all(
         customRegistrations.map(async (registration) => {
           const desc = await fetchWrapper.get(
-            `/v1/model_registrations/${type}/${registration.model_name}`
+            `/api/v1/model_registrations/${type}/${registration.model_name}`
           )
 
           return {
