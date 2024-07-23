@@ -471,7 +471,7 @@ class RESTfulChatModelHandle(RESTfulGenerateModelHandle):
 
         """
 
-        url = f"{self._base_url}/v1/chat/completions"
+        url = f"{self._base_url}/api/v1/chat/completions"
 
         if chat_history is None:
             chat_history = []
@@ -545,7 +545,7 @@ class RESTfulChatglmCppChatModelHandle(RESTfulModelHandle):
 
         """
 
-        url = f"{self._base_url}/v1/chat/completions"
+        url = f"{self._base_url}/api/v1/chat/completions"
 
         if chat_history is None:
             chat_history = []
