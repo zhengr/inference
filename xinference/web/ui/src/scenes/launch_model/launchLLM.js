@@ -102,7 +102,7 @@ const LaunchLLM = ({ gpuAvailable }) => {
       setIsCallingApi(true)
 
       fetchWrapper
-        .get('/v1/model_registrations/LLM?detailed=true')
+        .get('/api/v1/model_registrations/LLM?detailed=true')
         .then((data) => {
           const builtinRegistrations = data.filter((v) => v.is_builtin)
           setRegistrationData(builtinRegistrations)
