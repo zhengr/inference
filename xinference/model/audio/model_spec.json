@@ -61,7 +61,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-base.en",
-        "model_revision": "911407f4214e0e1d82085af863093ec0b66f9cd6"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387034,
@@ -78,7 +78,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-small",
-        "model_revision": "998cb1a777c20db53d6033a61b977ed4c3792cac"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387035,
@@ -95,7 +95,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-small.en",
-        "model_revision": "e8727524f962ee844a7319d92be39ac1bd25655a"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387036,
@@ -112,7 +112,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-medium",
-        "model_revision": "16688beb1294bedd0a6f5cd86fe7eec57bce41ed"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387038,
@@ -129,7 +129,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-medium.en",
-        "model_revision": "2e98eb6279edf5095af0c8dedb36bdec0acd172b"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387039,
@@ -146,7 +146,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-large-v3",
-        "model_revision": "6cdf07a7e3ec3806e5d55f787915b85d4cd020b1"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "AI-ModelScope/whisper-large-v3",
@@ -167,7 +167,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-large-v3-turbo",
-        "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "AI-ModelScope/whisper-large-v3-turbo",
@@ -188,7 +188,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "BELLE-2/Belle-distilwhisper-large-v2-zh",
-        "model_revision": "ed25d13498fa5bac758b2fc479435b698532dfe8"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387046,
@@ -205,7 +205,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "BELLE-2/Belle-whisper-large-v2-zh",
-        "model_revision": "ec5bd5d78598545b7585814edde86dac2002b5b9"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387048,
@@ -222,7 +222,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "BELLE-2/Belle-whisper-large-v3-zh",
-        "model_revision": "3bebc7247696b39f5ab9ed22db426943ac33f600"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "Xorbits/Belle-whisper-large-v3-zh",
@@ -243,7 +243,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-tiny"
+        "model_id": "mlx-community/whisper-tiny",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387051,
@@ -260,7 +261,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-tiny.en-mlx"
+        "model_id": "mlx-community/whisper-tiny.en-mlx",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387052,
@@ -277,7 +279,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-base-mlx"
+        "model_id": "mlx-community/whisper-base-mlx",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387054,
@@ -294,7 +297,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-base.en-mlx"
+        "model_id": "mlx-community/whisper-base.en-mlx",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387055,
@@ -311,7 +315,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-small-mlx"
+        "model_id": "mlx-community/whisper-small-mlx",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387056,
@@ -328,7 +333,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-small.en-mlx"
+        "model_id": "mlx-community/whisper-small.en-mlx",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387057,
@@ -345,7 +351,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-medium-mlx"
+        "model_id": "mlx-community/whisper-medium-mlx",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387058,
@@ -362,7 +369,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-medium.en-mlx"
+        "model_id": "mlx-community/whisper-medium.en-mlx",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387060,
@@ -379,7 +387,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-large-v3-mlx"
+        "model_id": "mlx-community/whisper-large-v3-mlx",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387061,
@@ -396,7 +405,8 @@
     "engine": "mlx",
     "model_src": {
       "huggingface": {
-        "model_id": "mlx-community/whisper-large-v3-turbo"
+        "model_id": "mlx-community/whisper-large-v3-turbo",
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387062,
@@ -425,7 +435,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "FunAudioLLM/SenseVoiceSmall",
-        "model_revision": "3eb3b4eeffc2f2dde6051b853983753db33e35c3"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/SenseVoiceSmall",
@@ -453,7 +463,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "funasr/paraformer-zh",
-        "model_revision": "5ed094cdfc8f6a9b6b022bd08bc904ef862bc79e"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-pytorch",
@@ -482,7 +492,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "JunHowie/speech_paraformer-large-contextual_asr_nat-zh-cn-16k-common-vocab8404",
-        "model_revision": "26d622993683d7b0c517ee5ec9c1c8bdde76e324"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/speech_paraformer-large-contextual_asr_nat-zh-cn-16k-common-vocab8404",
@@ -510,7 +520,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "JunHowie/speech_paraformer-large-vad-punc_asr_nat-zh-cn-16k-common-vocab8404-pytorch",
-        "model_revision": "b6d8cb81645e34056cd3dda41e5624a740587de3"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/speech_paraformer-large-vad-punc_asr_nat-zh-cn-16k-common-vocab8404-pytorch",
@@ -539,7 +549,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "JunHowie/speech_paraformer-large-vad-punc-spk_asr_nat-zh-cn",
-        "model_revision": "36abd64af4392fe02bf76453bc86c081cf1ca6da"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/speech_paraformer-large-vad-punc-spk_asr_nat-zh-cn",
@@ -568,7 +578,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "JunHowie/speech_seaco_paraformer_large_asr_nat-zh-cn-16k-common-vocab8404-pytorch",
-        "model_revision": "42e6be00854cf8de0f40002794f99df2a444fa97"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/speech_seaco_paraformer_large_asr_nat-zh-cn-16k-common-vocab8404-pytorch",
@@ -599,7 +609,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "2Noise/ChatTTS",
-        "model_revision": "1a3c04a8b0651689bd9242fbb55b1f4b5a9aef84"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "AI-ModelScope/ChatTTS",
@@ -643,7 +653,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "FunAudioLLM/CosyVoice-300M-SFT",
-        "model_revision": "096a5cff8d497fabb3dec2756a200f3688457a1b"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/CosyVoice-300M-SFT",
@@ -665,7 +675,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "FunAudioLLM/CosyVoice-300M-Instruct",
-        "model_revision": "ba5265d9a3169c1fedce145122c9dd4bc24e062c"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/CosyVoice-300M-Instruct",
@@ -708,7 +718,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "JunHowie/CosyVoice2-0.5B",
-        "model_revision": "7ac9e9a026aec35efe48cde1196eaad6a00ad5f2"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/CosyVoice2-0.5B",
@@ -731,7 +741,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "fishaudio/fish-speech-1.5",
-        "model_revision": "268b6ec86243dd683bc78dab7e9a6cedf9191f2a"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "fishaudio/fish-speech-1.5",
@@ -754,7 +764,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "SWivid/F5-TTS",
-        "model_revision": "4dcc16f297f2ff98a17b3726b16f5de5a5e45672"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "AI-ModelScope/F5-TTS",
@@ -777,7 +787,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "lucasnewman/f5-tts-mlx",
-        "model_revision": "7642bb232e3fcacf92c51c786edebb8624da6b93"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387089,
@@ -796,7 +806,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "myshell-ai/MeloTTS-English",
-        "model_revision": "bb4fb7346d566d277ba8c8c7dbfdf6786139b8ef"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387090,
@@ -815,7 +825,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "myshell-ai/MeloTTS-English-v2",
-        "model_revision": "a53e3509c4ee4ff16d79272feb2474ff864e18f3"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387091,
@@ -834,7 +844,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "myshell-ai/MeloTTS-English-v3",
-        "model_revision": "f7c4a35392c0e9be24a755f1edb4c3f63040f759"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387093,
@@ -853,7 +863,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "myshell-ai/MeloTTS-French",
-        "model_revision": "1e9bf590262392d8bffb679b0a3b0c16b0f9fdaf"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387094,
@@ -872,7 +882,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "myshell-ai/MeloTTS-Japanese",
-        "model_revision": "367f8795464b531b4e97c1515bddfc1243e60891"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387095,
@@ -891,7 +901,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "myshell-ai/MeloTTS-Spanish",
-        "model_revision": "dbb5496df39d11a66c1d5f5a9ca357c3c9fb95fb"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387096,
@@ -910,7 +920,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "myshell-ai/MeloTTS-Chinese",
-        "model_revision": "af5d207a364ea4208c6f589c89f57f88414bdd16"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387097,
@@ -929,7 +939,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "myshell-ai/MeloTTS-Korean",
-        "model_revision": "0207e5adfc90129a51b6b03d89be6d84360ed323"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387099,
@@ -946,7 +956,8 @@
     "multilingual": true,
     "model_src": {
       "huggingface": {
-        "model_id": "hexgrad/Kokoro-82M"
+        "model_id": "hexgrad/Kokoro-82M",
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "AI-ModelScope/Kokoro-82M",
@@ -968,7 +979,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "prince-canuma/Kokoro-82M",
-        "model_revision": "2acc06939cce874e0ddc454c5cb544f7f812e793"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "Xorbits/Kokoro-82M-MLX",
@@ -998,370 +1009,11 @@
     "multilingual": true,
     "model_src": {
       "huggingface": {
-        "model_id": "ByteDance/MegaTTS3",
-        "model_revision": "409a7002b006d80f0730fca6f80441b08c10e738"
-      },
-      "modelscope": {
-        "model_id": "ByteDance/MegaTTS3",
-        "model_revision": "master"
+        "model_id": "ampheremusic/MegaTTS3",
+        "model_revision": "main"
       }
     },
-    "updated_at": 1766387103,
+    "updated_at": 1766387104,
     "featured": false
-  },
-  {
-    "version": 2,
-    "model_name": "Kokoro-82M-v1.1-zh",
-    "model_family": "Kokoro-zh",
-    "model_ability": [
-      "text2audio",
-      "text2audio_zero_shot"
-    ],
-    "multilingual": false,
-    "model_src": {
-      "huggingface": {
-        "model_id": "hexgrad/Kokoro-82M-v1.1-zh"
-      },
-      "modelscope": {
-        "model_id": "AI-ModelScope/Kokoro-82M-v1.1-zh",
-        "model_revision": "master"
-      }
-    },
-    "updated_at": 1775931819,
-    "featured": false
-  },
-  {
-    "version": 2,
-    "model_name": "IndexTTS2",
-    "model_family": "IndexTTS2",
-    "model_ability": [
-      "text2audio",
-      "text2audio_zero_shot",
-      "text2audio_voice_cloning",
-      "text2audio_emotion_control"
-    ],
-    "multilingual": true,
-    "default_model_config": {
-      "small_models_dir": null
-    },
-    "virtualenv": {
-      "packages": [
-        "transformers==4.52.1",
-        "#system_torch#",
-        "#system_numpy#",
-        "json5",
-        "munch",
-        "matplotlib",
-        "flatten_dict",
-        "julius",
-        "tensorboard",
-        "randomname",
-        "argbind"
-      ]
-    },
-    "model_src": {
-      "huggingface": {
-        "model_id": "IndexTeam/IndexTTS-2",
-        "model_revision": "main"
-      },
-      "modelscope": {
-        "model_id": "IndexTeam/IndexTTS-2",
-        "model_revision": "master"
-      }
-    },
-    "updated_at": 1766387108,
-    "featured": true
-  },
-  {
-    "model_name": "Fun-ASR-Nano-2512",
-    "model_description": "This is a custom model description.",
-    "multilingual": false,
-    "model_ability": [
-      "audio2text"
-    ],
-    "model_family": "funasr",
-    "model_src": {
-      "modelscope": {
-        "model_id": "FunAudioLLM/Fun-ASR-Nano-2512",
-        "model_revision": "master"
-      },
-      "huggingface": {
-        "model_id": "FunAudioLLM/Fun-ASR-Nano-2512",
-        "model_revision": "main"
-      }
-    },
-    "default_model_config": {
-      "vad_model": "fsmn-vad",
-      "vad_kwargs": {
-        "max_single_segment_time": 30000
-      }
-    },
-    "default_transcription_config": {
-      "batch_size": 1
-    },
-    "version": 2,
-    "virtualenv": {
-      "packages": [
-        "funasr @ git+https://github.com/modelscope/FunASR@b25472b0b562d04f411da30ff9cc59786f68b0f2"
-      ]
-    },
-    "featured": false,
-    "updated_at": 1768536254
-  },
-  {
-    "model_name": "Fun-ASR-MLT-Nano-2512",
-    "model_description": "This is a custom model description.",
-    "multilingual": false,
-    "model_ability": [
-      "audio2text"
-    ],
-    "model_family": "funasr",
-    "model_src": {
-      "modelscope": {
-        "model_id": "FunAudioLLM/Fun-ASR-MLT-Nano-2512",
-        "model_revision": "master"
-      },
-      "huggingface": {
-        "model_id": "FunAudioLLM/Fun-ASR-MLT-Nano-2512",
-        "model_revision": "main"
-      }
-    },
-    "default_model_config": {
-      "vad_model": "fsmn-vad",
-      "vad_kwargs": {
-        "max_single_segment_time": 30000
-      }
-    },
-    "default_transcription_config": {
-      "batch_size": 1
-    },
-    "version": 2,
-    "virtualenv": {
-      "packages": [
-        "funasr @ git+https://github.com/modelscope/FunASR@b25472b0b562d04f411da30ff9cc59786f68b0f2"
-      ]
-    },
-    "featured": false,
-    "updated_at": 1768536595
-  },
-  {
-    "model_name": "Qwen3-ASR-0.6B",
-    "model_description": "This is a custom model description.",
-    "multilingual": true,
-    "model_ability": [
-      "audio2text"
-    ],
-    "model_family": "qwen3_asr",
-    "model_src": {
-      "huggingface": {
-        "model_id": "Qwen/Qwen3-ASR-0.6B",
-        "model_revision": "main"
-      },
-      "modelscope": {
-        "model_id": "Qwen/Qwen3-ASR-0.6B",
-        "model_revision": "master"
-      }
-    },
-    "default_model_config": {
-      "forced_aligner": "Qwen/Qwen3-ForcedAligner-0.6B"
-    },
-    "default_transcription_config": {},
-    "version": 2,
-    "virtualenv": {
-      "packages": [
-        "qwen-asr",
-        "#system_torch#",
-        "#system_numpy#",
-        "#system_pandas#"
-      ]
-    },
-    "featured": false,
-    "updated_at": 1775217476
-  },
-  {
-    "model_name": "Qwen3-ASR-1.7B",
-    "model_description": "This is a custom model description.",
-    "multilingual": true,
-    "model_ability": [
-      "audio2text"
-    ],
-    "model_family": "qwen3_asr",
-    "model_src": {
-      "huggingface": {
-        "model_id": "Qwen/Qwen3-ASR-1.7B",
-        "model_revision": "main"
-      },
-      "modelscope": {
-        "model_id": "Qwen/Qwen3-ASR-1.7B",
-        "model_revision": "master"
-      }
-    },
-    "default_model_config": {
-      "forced_aligner": "Qwen/Qwen3-ForcedAligner-0.6B"
-    },
-    "default_transcription_config": {},
-    "version": 2,
-    "virtualenv": {
-      "packages": [
-        "qwen-asr",
-        "#system_torch#",
-        "#system_numpy#",
-        "#system_pandas#"
-      ]
-    },
-    "featured": false,
-    "updated_at": 1775217521
-  },
-  {
-    "model_name": "Qwen3-TTS-12Hz-0.6B-Base",
-    "model_description": "This is a custom model description.",
-    "multilingual": true,
-    "model_ability": [
-      "text2audio",
-      "text2audio_voice_cloning"
-    ],
-    "model_family": "qwen3_tts",
-    "model_src": {
-      "huggingface": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
-        "model_revision": "main"
-      },
-      "modelscope": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
-        "model_revision": "master"
-      }
-    },
-    "version": 2,
-    "virtualenv": {
-      "packages": [
-        "qwen-tts",
-        "#system_torch#",
-        "#system_numpy#",
-        "#system_pandas#"
-      ]
-    },
-    "featured": false,
-    "updated_at": 1775717134
-  },
-  {
-    "model_name": "Qwen3-TTS-12Hz-1.7B-Base",
-    "model_description": "This is a custom model description.",
-    "multilingual": true,
-    "model_ability": [
-      "text2audio",
-      "text2audio_voice_cloning"
-    ],
-    "model_family": "qwen3_tts",
-    "model_src": {
-      "huggingface": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
-        "model_revision": "main"
-      },
-      "modelscope": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
-        "model_revision": "master"
-      }
-    },
-    "version": 2,
-    "virtualenv": {
-      "packages": [
-        "qwen-tts",
-        "#system_torch#",
-        "#system_numpy#",
-        "#system_pandas#"
-      ]
-    },
-    "featured": false,
-    "updated_at": 1775717083
-  },
-  {
-    "model_name": "Qwen3-TTS-12Hz-0.6B-CustomVoice",
-    "model_description": "This is a custom model description.",
-    "multilingual": true,
-    "model_ability": [
-      "text2audio"
-    ],
-    "model_family": "qwen3_tts",
-    "model_src": {
-      "huggingface": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
-        "model_revision": "main"
-      },
-      "modelscope": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
-        "model_revision": "master"
-      }
-    },
-    "version": 2,
-    "virtualenv": {
-      "packages": [
-        "qwen-tts",
-        "#system_torch#",
-        "#system_numpy#",
-        "#system_pandas#"
-      ]
-    },
-    "featured": false,
-    "updated_at": 1775717182
-  },
-  {
-    "model_name": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
-    "model_description": "This is a custom model description.",
-    "multilingual": true,
-    "model_ability": [
-      "text2audio"
-    ],
-    "model_family": "qwen3_tts",
-    "model_src": {
-      "huggingface": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
-        "model_revision": "main"
-      },
-      "modelscope": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
-        "model_revision": "master"
-      }
-    },
-    "version": 2,
-    "virtualenv": {
-      "packages": [
-        "qwen-tts",
-        "#system_torch#",
-        "#system_numpy#",
-        "#system_pandas#"
-      ]
-    },
-    "featured": false,
-    "updated_at": 1775717158
-  },
-  {
-    "model_name": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
-    "model_description": "This is a custom model description.",
-    "multilingual": true,
-    "model_ability": [
-      "text2audio"
-    ],
-    "model_family": "qwen3_tts",
-    "model_src": {
-      "huggingface": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
-        "model_revision": "main"
-      },
-      "modelscope": {
-        "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
-        "model_revision": "master"
-      }
-    },
-    "version": 2,
-    "virtualenv": {
-      "packages": [
-        "qwen-tts",
-        "#system_torch#",
-        "#system_numpy#",
-        "#system_pandas#"
-      ]
-    },
-    "featured": false,
-    "updated_at": 1775717207
   }
 ]
