@@ -10,7 +10,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-tiny",
-        "model_revision": "167c219b21f11ef214220b8fdb7536b8a88c2475"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766386952,
@@ -27,7 +27,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-tiny.en",
-        "model_revision": "87c7102498dcde7456f24cfd30239ca606ed9063"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766386982,
@@ -44,7 +44,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "openai/whisper-base",
-        "model_revision": "8c1db9b51951100007a96a525d83a8ec81b3c237"
+        "model_revision": "main"
       }
     },
     "updated_at": 1766387032,
@@ -621,7 +621,7 @@
     "model_src": {
       "huggingface": {
         "model_id": "FunAudioLLM/CosyVoice-300M",
-        "model_revision": "39c4e13d46bd4dfb840d214547623e5fcd2428e2"
+        "model_revision": "main"
       },
       "modelscope": {
         "model_id": "iic/CosyVoice-300M",
