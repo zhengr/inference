@@ -1,0 +1,179 @@
+name: Xinference CD for DockerHub
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-release-permission:
+    name: Check release tag permission
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/check-release-permission
+
+  build-cpu:
+    name: Build CPU Docker image
+    timeout-minutes: 240
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Clean docker image cache before build
+        shell: bash
+        if: ${{ github.repository == 'zhengr/inference' }}
+        run: |
+          docker system df || true
+          docker system prune -af --volumes || true
+          docker builder prune -af || true
+          docker buildx prune -af || true
+
+      - name: Build and push CPU Docker image
+        shell: bash
+        if: ${{ github.repository == 'zhengr/inference' }}
+        env:
+          DOCKER_ORG: ${{ secrets.DOCKERHUB_USERNAME }}
+        run: |
+          if [[ "$GITHUB_REF" =~ ^"refs/tags/" ]]; then
+            IMAGE_TAG="${GITHUB_REF#refs/tags/}"
+            echo "Will handle tag $IMAGE_TAG"
+          else
+            BRANCH="${GITHUB_REF_NAME:-$(git rev-parse --abbrev-ref HEAD)}"
+            git checkout "$BRANCH"
+            IMAGE_TAG="nightly-$BRANCH"
+          fi
+
+          docker build -t "$DOCKER_ORG/xinference:${IMAGE_TAG}-cpu" --progress=plain -f xinference/deploy/docker/Dockerfile.cpu .
+          docker push "$DOCKER_ORG/xinference:${IMAGE_TAG}-cpu"
+
+      - name: Clean docker image cache after build
+        shell: bash
+        if: ${{ always() && github.repository == 'zhengr/inference' }}
+        run: |
+          docker system df || true
+          docker system prune -af --volumes || true
+          docker builder prune -af || true
+          docker buildx prune -af || true
+
+  tag-latest:
+    name: Tag latest Docker images
+    needs: build-cpu
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    if: ${{ startsWith(github.ref, 'refs/tags/') && github.repository == 'zhengr/inference' }}
+    steps:
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Clean docker image cache before tagging
+        shell: bash
+        run: |
+          docker system df || true
+          docker system prune -af --volumes || true
+          docker builder prune -af || true
+          docker buildx prune -af || true
+
+      - name: Push latest tags
+        shell: bash
+        env:
+          DOCKER_ORG: ${{ secrets.DOCKERHUB_USERNAME }}
+        run: |
+          GIT_TAG="${GITHUB_REF#refs/tags/}"
+
+          docker pull "$DOCKER_ORG/xinference:${GIT_TAG}-cpu"
+          docker tag "$DOCKER_ORG/xinference:${GIT_TAG}-cpu" "$DOCKER_ORG/xinference:latest-cpu"
+          docker push "$DOCKER_ORG/xinference:latest-cpu"
+
+      - name: Clean docker image cache after tagging
+        shell: bash
+        if: ${{ always() }}
+        run: |
+          docker system df || true
+          docker system prune -af --volumes || true
+          docker builder prune -af || true
+          docker buildx prune -af || true
+
+  notify-failure:
+    name: Open issue for Docker CD failure
+    needs: [build-cpu, tag-latest]
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    if: ${{ always() && github.repository == 'zhengr/inference' && contains(needs.*.result, 'failure') }}
+    steps:
+      - name: Create or update failure issue
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        with:
+          script: |
+            const needs = JSON.parse(process.env.NEEDS_JSON);
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const refName = context.ref.replace(/^refs\/heads\//, '').replace(/^refs\/tags\//, '');
+            const title = `[Docker CD] Failure on ${refName}`;
+            const jobResults = Object.entries(needs)
+              .map(([job, info]) => `- ${job}: ${info.result}`)
+              .join('\n');
+            const body = [
+              'Docker CD failed.',
+              '',
+              `- Workflow: ${context.workflow}`,
+              `- Run: ${runUrl}`,
+              `- Event: ${context.eventName}`,
+              `- Ref: ${context.ref}`,
+              `- SHA: ${context.sha}`,
+              `- Actor: ${context.actor}`,
+              '',
+              'Job results:',
+              jobResults,
+            ].join('\n');
+
+            const { data: existingIssues } = await github.rest.search.issuesAndPullRequests({
+              q: `repo:${context.repo.owner}/${context.repo.repo} is:issue is:open in:title "${title.replace(/"/g, '\\"')}"`,
+              per_page: 1,
+            });
+
+            if (existingIssues.items.length > 0) {
+              const issue = existingIssues.items[0];
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body,
+              });
+              core.info(`Updated existing issue #${issue.number}`);
+              return;
+            }
+
+            const { data: issue } = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+            });
+            core.info(`Created issue #${issue.number}`);
