@@ -1,4 +1,4 @@
-name: Xinference CD for DockerHub
+name: Xinference DockerHub Publisher
 
 on:
   push:
