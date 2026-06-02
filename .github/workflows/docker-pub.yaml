@@ -24,7 +24,7 @@ jobs:
     name: Build aarch64 Docker image
     needs: check-release-permission
     timeout-minutes: 240
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm64
     permissions:
       contents: read
     steps:
