@@ -233,7 +233,7 @@ jobs:
 
   notify-failure:
     name: Open issue for Docker CD failure
-    needs: [build-cpu, tag-latest]
+    needs: [build-aarch64, build-gpu, build-cpu, tag-latest]
     runs-on: ubuntu-latest
     permissions:
       issues: write
