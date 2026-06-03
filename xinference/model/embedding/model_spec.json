@@ -13,7 +13,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "BAAI/bge-large-en",
-            "model_revision": "d57a0d82f0d0884de76bbce093f201364d9b720e",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -54,7 +54,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "BAAI/bge-base-en",
-            "model_revision": "90e113f4f9cd0c83220c873b94ca7bc37f85de97",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -95,7 +95,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "thenlper/gte-large",
-            "model_revision": "2b5163b62ed28492dc70eb19a882b71c81dbc7c8",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -135,7 +135,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "thenlper/gte-base",
-            "model_revision": "792749e8178be77f479b26788a0e1adb4ec9c8a9",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -175,7 +175,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "intfloat/e5-large-v2",
-            "model_revision": "b322e09026e4ea05f42beadf4d661fb4e101d311",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -213,7 +213,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "BAAI/bge-large-zh",
-            "model_revision": "1b543b301eb63dd32914b56d939db2a972df15d5",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -254,7 +254,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "BAAI/bge-large-zh-noinstruct",
-            "model_revision": "d971248454d6267756fab9caa431c2c2fc5f0f35",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -294,7 +294,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "BAAI/bge-base-zh",
-            "model_revision": "faefe5952238b3d28bc35d1c8fe63eb269d8cee0",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -335,7 +335,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "intfloat/multilingual-e5-large",
-            "model_revision": "c505dce3578a12ec54e47bdc72bef5cd0eacb085",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -373,7 +373,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "BAAI/bge-small-zh",
-            "model_revision": "52185a5f4aa5bb1fe80c0671b7303161880a2d79",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -414,7 +414,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "BAAI/bge-small-zh-v1.5",
-            "model_revision": "a7ec18349c42fc774b0e86af26215e38a10fbe9d",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
@@ -455,7 +455,7 @@
         "model_src": {
           "huggingface": {
             "model_id": "BAAI/bge-base-zh-v1.5",
-            "model_revision": "fcd022c36ff982da395e71ae930a5ad0d4b9330f",
+            "model_revision": "main",
             "quantizations": [
               "none"
             ]
