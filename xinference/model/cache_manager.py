@@ -102,12 +102,19 @@ class CacheManager:
             use_symlinks = cache_config
             if not IS_NEW_HUGGINGFACE_HUB:
                 use_symlinks = {"local_dir_use_symlinks": True, "local_dir": cache_dir}
+                
+            # 👉 安全修复：如果 revision 为空或 None，确保不传或者给一个合法的默认值 'main'
+            current_revision = self._model_family.model_revision
+            if not current_revision: 
+               current_revision = "main"
+
             download_dir = retry_download(
                 hf_download,
                 self._model_family.model_name,
                 None,
                 self._model_family.model_id,
-                revision=self._model_family.model_revision,
+                revision=current_revision,  # 👈 使用清洗后的安全版本号
+                #revision=self._model_family.model_revision,
                 **use_symlinks,
             )
             if IS_NEW_HUGGINGFACE_HUB:
