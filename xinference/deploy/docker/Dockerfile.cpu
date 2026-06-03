@@ -29,6 +29,7 @@ RUN python -m pip install --upgrade -i "$PIP_INDEX" pip "setuptools<82" wheel "p
     git restore . && \
     pip install -i "$PIP_INDEX" --no-deps "." && \
     pip install -i "$PIP_INDEX" "xllamacpp" && \
+    pip uninstall -y kernels || true && \
     # clean packages
     pip cache purge
 
